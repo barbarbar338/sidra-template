@@ -1,6 +1,7 @@
 import { Bootstrap, SetGlobalPrefix } from "sidra";
 import express, { Express } from "express";
 
+import "./controllers/ping";
 import "./controllers/hello";
 
 const app = express();
