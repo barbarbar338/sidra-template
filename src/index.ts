@@ -1,14 +1,18 @@
 import { Bootstrap, SetGlobalPrefix } from "sidra";
 import express, { Express } from "express";
 
-import "./controllers/ping";
-import "./controllers/hello";
+import { PingContoller } from "./controllers/ping";
+import { HelloContoller } from "./controllers/hello";
 
 const app = express();
 
 function main(expressApp: Express) {
 	SetGlobalPrefix("/v1");
-	const listener = Bootstrap(expressApp, 3000);
+	const listener = Bootstrap(
+		expressApp,
+		[PingContoller, HelloContoller],
+		3000,
+	);
 	return listener;
 }
 

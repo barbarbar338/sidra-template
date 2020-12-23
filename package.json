@@ -1,6 +1,6 @@
 {
 	"name": "sidra-project",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "⚔️ SidraJS starter template.",
 	"scripts": {
 		"test": "mocha -r ts-node/register tests/*.test.ts",
@@ -35,6 +35,6 @@
 	},
 	"dependencies": {
 		"express": "^4.17.1",
-		"sidra": "^0.0.3"
+		"sidra": "^0.0.4"
 	}
 }
