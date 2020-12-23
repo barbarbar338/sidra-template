@@ -12,6 +12,9 @@ function main(expressApp: Express) {
 		expressApp,
 		[PingContoller, HelloContoller],
 		3000,
+		{
+			debugLog: true
+		}
 	);
 	return listener;
 }

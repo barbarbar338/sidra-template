@@ -55,6 +55,16 @@ describe("All Controller Tests", () => {
 				});
 		});
 	});
+	it("404 Handling (/v1/some/random/path)", (done) => {
+		request(app)
+			.get("/v1/some/random/path")
+			.end((_, res) => {
+				expect(res.body).to.haveOwnProperty("statusCode", 404);
+				expect(res.body).to.haveOwnProperty("error", "Not Found");
+				expect(res.body).to.haveOwnProperty("message", "Route not found");
+				done();
+			});
+	});
 	after((done) => {
 		listener.close(done);
 	});
