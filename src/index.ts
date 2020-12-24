@@ -3,6 +3,7 @@ import express, { Express } from "express";
 
 import { PingContoller } from "./controllers/ping";
 import { HelloContoller } from "./controllers/hello";
+import { ImageContoller } from "./controllers/image";
 
 const app = express();
 
@@ -10,10 +11,10 @@ function main(expressApp: Express) {
 	SetGlobalPrefix("/v1");
 	const listener = Bootstrap(
 		expressApp,
-		[PingContoller, HelloContoller],
+		[PingContoller, HelloContoller, ImageContoller],
 		3000,
 		{
-			debugLog: true
+			debugLog: process.env.NODE_ENV !== "production"
 		}
 	);
 	return listener;

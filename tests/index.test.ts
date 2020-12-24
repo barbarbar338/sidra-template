@@ -55,6 +55,15 @@ describe("All Controller Tests", () => {
 				});
 		});
 	});
+	it("Sending Buffer (/v1/image/banner)", (done) => {
+		request(app)
+			.get("/v1/image/banner")
+			.end((_, res) => {
+				expect(res.status).to.equal(200);
+				expect(Buffer.isBuffer(res.body)).to.be.true;
+				done();
+			});
+	});
 	it("404 Handling (/v1/some/random/path)", (done) => {
 		request(app)
 			.get("/v1/some/random/path")
