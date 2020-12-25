@@ -9,7 +9,7 @@ import {
 } from "sidra";
 
 @Controller("/hello")
-export class HelloContoller {
+export class HelloController {
 	@Get("/query")
 	sayHelloToUserWithQuery(@Query("user") user: string): APIRes<null> {
 		if (!user) throw new BadRequestException("user query is required");

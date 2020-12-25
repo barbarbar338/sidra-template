@@ -1,7 +1,7 @@
 import { APIRes, Controller, Get, HTTPStatus } from "sidra";
 
 @Controller("/ping")
-export class PingContoller {
+export class PingController {
 	@Get("/")
 	getPing(): APIRes<null> {
 		return {
