@@ -9,7 +9,7 @@ import { Response } from "express";
 const buffer = readFileSync("./assets/banner.png");
 
 @Controller("/image")
-export class ImageContoller {
+export class ImageController {
 	@Get("/banner")
 	returnBanner(
         @Res() res: Response
