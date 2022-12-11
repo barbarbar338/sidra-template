@@ -1,24 +1,9 @@
-import { Bootstrap, SetGlobalPrefix } from "sidra";
-import express, { Express } from "express";
+import { Handle } from "sidra";
+import { AppController } from "./controllers/app.controller";
+import { TodosController } from "./controllers/todos.controller";
 
-import { PingController } from "./controllers/ping";
-import { HelloController } from "./controllers/hello";
-import { ImageController } from "./controllers/image";
+const handler = Handle([AppController, TodosController]);
 
-const app = express();
-
-function main(expressApp: Express) {
-	SetGlobalPrefix("/v1");
-	const listener = Bootstrap(
-		expressApp,
-		[PingController, HelloController, ImageController],
-		3000,
-		{
-			debugLog: process.env.NODE_ENV !== "production"
-		}
-	);
-	return listener;
-}
-
-const listener = main(app);
-export { listener, app };
+addEventListener("fetch", (event) => {
+	event.respondWith(handler(event.request));
+});
